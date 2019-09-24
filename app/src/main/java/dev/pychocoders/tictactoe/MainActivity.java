@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
    public boolean turnx = true;
     public boolean turno = false;
    public char pos[] = new char[9];
-   int flag = 0;
+   int flag = 0,count = 0;
    Dialog dialog;
 
 
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String state = (String)mButton.getText();
+                count++;
                 if(state.equals("") && turnx == true)
                 {
                     mButton.setText("X");
@@ -104,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String state = (String)mButton2.getText();
+                count++;
                 if(state.equals("") && turnx == true)
                 {
                     mButton2.setText("X");
@@ -147,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String state = (String)mButton3.getText();
+                count++;
                 if(state.equals("") && turnx == true)
                 {
                     mButton3.setText("X");
@@ -198,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String state = (String)mButton4.getText();
+                count++;
                 if(state.equals("") && turnx == true)
                 {
                     mButton4.setText("X");
@@ -242,6 +246,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {   // TO BE DONE
                 String state = (String)mButton5.getText();
+                count++;
                 if(state.equals("") && turnx == true)
                 {
                     mButton5.setText("X");
@@ -304,6 +309,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String state = (String)mButton6.getText();
+                count++;
                 if(state.equals("") && turnx == true)
                 {
                     mButton6.setText("X");
@@ -348,6 +354,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) { //DONE
                 String state = (String)mButton7.getText();
+                count++;
                 if(state.equals("") && turnx == true)
                 {
                     mButton7.setText("X");
@@ -399,6 +406,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) { //DONE
                 String state = (String)mButton8.getText();
+                count++;
                 if(state.equals("") && turnx == true)
                 {
                     mButton8.setText("X");
@@ -442,6 +450,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {  //DONE
                 String state = (String)mButton9.getText();
+                count++;
+                Toast.makeText(getApplicationContext(),count + "  itna hai" ,Toast.LENGTH_LONG).show();
                 if(state.equals("") && turnx == true)
                 {
                     mButton9.setText("X");
@@ -498,19 +508,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        for(int i=0;i<9;i++)
-        {
-            if(pos[i]==' ')
-            {
-                flag = 0;
-            }
-            else
-            {
-                flag = 1;
-            }
-        }
-
-        if(flag == 1)
+        if(count == 9)
         {
             reset();
         }
@@ -539,6 +537,7 @@ public class MainActivity extends AppCompatActivity {
         mButton9.setText("");
         turnx = true;
         turno = false;
+        count = 0;
         for(int i=0;i<9;i++) {
             pos[i] = ' ';
         }
